@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thmyeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row mt-5">
+				<div class="col-6">
+					<div class="card shadow-lg rounded fulllength bg-color">
+						
+						<div class="card-body  justify-content-center">
+							<!-- <img th:src="@{img/Welcome.jpg}" alt="" class="img-fluid" /> -->
+							<div class="text-center mb-5">
+								<div class="text-white">
+									<h1 class="font-weight-bold my-5">TO-DO-List</h1>
+									<h3>Create your own To-Do-List Or list of Tasks that needs to be done. </h3>
+								</div>
+								
+							</div>
+							<div class="">
+								<form th:action="@{/save}" class="form-group text-center "
+									method="post" autocomplete="off">
+									<!-- <input type="text" class="form-control" /> -->
+
+									<div class="input-group ">
+										<div class="input-group-prepend">
+											<span class="input-group-text font-weight-bold">+</span>
+										</div>
+										<input type="text" class="form-control"
+											placeholder="Enter To-Do-List here" name="ToDoList"
+											required="required" />
+									</div>
+
+									<input type="submit"
+										class="btn btn-block btn-success tex-white my-3 font-weight-bold"
+										value="Add TO-DO-List" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-6">
+					<div class="card shadow-lg fulllength">
+						<div class="card-body">
+							<div th:if="${#lists.isEmpty(all)}">
+								<!-- <h1>Sorry but Nothing to show</h1> -->
+								 <img th:src="@{img/sad.jpg}" alt="" style="height:45%; width: 85%; justify-content: center;" class="try"/> 
+
+							</div>
+							<div th:unless="${#lists.isEmpty(all)}">
+								<div class="text-center">
+									<h1>My TO-DO-List</h1>
+								</div>						
+
+									<table class="table">
+										<thead>
+											<tr>
+												<th scope="col" colspan="2" style="text-align: center;">TODO</th>
+												<th scope="col">Delete</th>
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr  th:each="n:${all}" class="todo">
+												<td><i class="fa-solid fa-clipboard-check"></i></td>
+												<td><span th:text="${n}" title="Your Content"></span></td>
+												<td>
+													<a th:href="@{'/delete/'+${n}}" class="fa-solid fa-trash text-success icon" title="Delete"></a>
+												</td>
+											</tr>
+											
+										</tbody>
+									</table>
+
+
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>

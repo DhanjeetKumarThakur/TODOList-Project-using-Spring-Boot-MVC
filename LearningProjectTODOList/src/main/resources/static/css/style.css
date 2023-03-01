@@ -1,0 +1,47 @@
+body{
+	 background-color: #400080;
+	/* background-color: #e2e2e2; */
+}
+
+
+.fulllength{
+	height: 80vh;
+	width: 100%;
+	align-content: center;
+	box-shadow: gray;
+	overflow: auto;
+}
+
+.todo:hover{
+	/* background-color: #2269bf; */
+	background-color:#5b21b6;
+	font-style: italic;
+	color: #f0abfc;
+	font-weight:bold;
+}
+
+.icon:hover{
+	font-size: 30px;
+
+}
+/* .fulllength:hover{
+	background-color: 	#f2f2df;
+} */
+
+.nothing{
+	background: url('/img/sad.jpg') no-repeat inherit;
+	height:inherit;
+}
+
+.bg-color{
+	background-color: #8000ff;
+}
+
+/* .bg-img{
+	background-image: url('/img/Welcome.jpg');
+	background-repeat: no-repeat;
+	background-clip: content-box;
+	background-size: inherit;
+	
+} */
+
